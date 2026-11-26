@@ -4,10 +4,9 @@
       "codigo": "IDEXSAM-2026-DPW-S1-049",
       "titulo": "Seminario de Office Avanzado",
       "institucion": "I.E.S.T.P. Santiago Antúnez de Mayolo",
-      "horas": "40 horas",
+      "horas": "120 horas",
       "estado": "VERIFICADO",
-      "temario": "Word, Excel avanzado, PowerPoint, Outlook, OneNote y Teams",
-      "url": "https://ejemplo.com/validar/IDEXSAM-2026-DPW-S1-049"
+      "temario": "Word, Excel avanzado, PowerPoint, Outlook, OneNote y Teams"
     },
     "1": {
       "codigo": "CISAM-ING-180H",
@@ -15,8 +14,7 @@
       "institucion": "CISAM",
       "horas": "180 horas",
       "estado": "VERIFICADO",
-      "temario": "Comprensión lectora, gramática aplicada y expresión oral",
-      "url": "https://ejemplo.com/validar/CISAM-ING-180H"
+      "temario": "Comprensión lectora, gramática aplicada y expresión oral"
     }
   }
 }

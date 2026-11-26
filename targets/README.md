@@ -1,11 +1,10 @@
 # Marcadores MindAR
 
-Coloca aquí el archivo compilado generado con el compilador de MindAR:
-
 ```text
 targets/targets.mind
+targets/cert3d.png
 ```
 
-Debes subir las imágenes en el mismo orden en que están numerados los
-marcadores. La primera imagen corresponde al índice `0` y la segunda al
-índice `1`.
+`cert3d.png` es la imagen fuente del único marcador compilado en
+`targets.mind`, con índice `0`. MindAR usa el archivo `.mind`; el PNG se
+conserva como referencia y no debe usarse como `imageTargetSrc`.
