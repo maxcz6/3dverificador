@@ -15,8 +15,10 @@ Los datos iniciales se leen desde `data/certificados.json`.
 3. Al encontrarlo, `js/app.js` muestra los datos asociados a la clave `"0"` de
    `data/certificados.json`. El estado se considera verificado cuando su valor
    es `VERIFICADO` (sin distinguir mayúsculas y minúsculas).
-4. Los modelos 3D y el video quedan anclados al marcador. El video se reproduce
-   en bucle mientras el certificado está detectado y se pausa al perderlo.
+4. El video ocupa el marcador completo y los modelos 3D aparecen fuera de sus
+   bordes laterales. La ficha de información se muestra a la izquierda. El video
+   se reproduce en bucle mientras el certificado está detectado y se pausa al
+   perderlo.
 5. Al perder el marcador, se oculta la ficha de información y se vuelve a
    mostrar el aviso para apuntar la cámara.
 
@@ -126,8 +128,9 @@ correspondientes y ajustar la configuración.
 ## Cambiar recursos AR
 
 - **Video:** reemplaza `vdo.mp4` en la carpeta principal. Se espera un video MP4
-  reproducible por el navegador; el plano está dimensionado para una proporción
-  16:9. La opacidad, tamaño y posición del plano se configuran en `index.html`.
+  reproducible por el navegador. El plano llena el marcador y recorta el centro
+  del video 16:9 para adaptarlo al certificado sin deformarlo. La posición y el
+  recorte se configuran en `index.html`.
 - **Modelos:** reemplaza o ajusta los archivos `.glb` en `assets/`. Sus rutas,
   posiciones, escalas y rotaciones están definidas en `index.html`.
 - **Marcador:** si cambia la imagen del certificado, vuelve a generar

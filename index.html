@@ -51,93 +51,61 @@
           id="video-certificado-overlay"
           src="#video-certificado"
           width="1"
-          height="0.5625"
+          height="0.694"
           position="0 0 0.01"
-          material="shader: flat; transparent: true; opacity: 0.86; side: double; depthWrite: false">
+          material="shader: flat; side: double; depthWrite: false; repeat: 0.811 1; offset: 0.0945 0">
         </a-video>
-        <a-box
-          color="#4ade80"
-          opacity="0.8"
-          width="1"
-          height="0.008"
-          depth="0.004"
-          position="0 0.347 0.02">
-        </a-box>
-        <a-box
-          color="#4ade80"
-          opacity="0.8"
-          width="1"
-          height="0.008"
-          depth="0.004"
-          position="0 -0.347 0.02">
-        </a-box>
-        <a-box
-          color="#4ade80"
-          opacity="0.8"
-          width="0.008"
-          height="0.694"
-          depth="0.004"
-          position="-0.5 0 0.02">
-        </a-box>
-        <a-box
-          color="#4ade80"
-          opacity="0.8"
-          width="0.008"
-          height="0.694"
-          depth="0.004"
-          position="0.5 0 0.02">
-        </a-box>
         <a-gltf-model
           id="modelo-instituto-overlay"
           src="#modelo-instituto"
           rotation="0 0 0"
-          position="-0.4 0.26 0.04"
+          position="-0.62 0.25 0.04"
           scale="0.7 0.7 0.7">
         </a-gltf-model>
         <a-gltf-model
           id="modelo-programacion-overlay"
           src="#modelo-programacion"
           rotation="0 0 0"
-          position="0.4 0.25 0.05"
+          position="0.62 0.25 0.05"
           scale="0.07 0.07 0.07">
         </a-gltf-model>
-        <a-entity id="ar-panel" position="0 -0.04 0.04" visible="false">
+        <a-entity id="ar-panel" position="-0.2 -0.06 0.04" visible="false">
           <a-plane
             color="#0f172a"
-            opacity="0.28"
-            width="0.94"
-            height="0.38"
+            opacity="0.52"
+            width="0.58"
+            height="0.5"
             material="transparent: true; depthWrite: false">
           </a-plane>
           <a-text
             id="ar-estado"
-            text="value: VERIFICADO; align: left; color: #4ade80; width: 10; fontSize: 38"
-            position="-0.42 0.145 0.01"
-            scale="0.09 0.06 0.09">
+            text="value: VERIFICADO; align: left; color: #4ade80; width: 10"
+            position="-0.26 0.17 0.01"
+            scale="0.055 0.05 0.06">
           </a-text>
           <a-text
             id="ar-titulo"
-            text="value: Seminario de Office Avanzado; align: left; color: #ffffff; width: 10; fontSize: 30"
-            position="-0.42 0.085 0.01"
-            scale="0.09 0.06 0.09">
+            text="value: Seminario de Office Avanzado; align: left; color: #ffffff; width: 10"
+            position="-0.26 0.095 0.01"
+            scale="0.055 0.05 0.06">
           </a-text>
           <a-text
             id="ar-institucion"
-            text="value: Institución; align: left; color: #ffffff; width: 10; fontSize: 21"
-            position="-0.42 0.025 0.01"
-            scale="0.09 0.06 0.09">
+            text="value: Institución; align: left; color: #ffffff; width: 10"
+            position="-0.26 0.015 0.01"
+            scale="0.055 0.05 0.06">
           </a-text>
           <a-text
             id="ar-codigo"
-            text="value: Código; align: left; color: #ffffff; width: 10; fontSize: 20"
-            position="-0.42 -0.035 0.01"
-            scale="0.09 0.06 0.09">
+            text="value: Código; align: left; color: #ffffff; width: 10"
+            position="-0.26 -0.065 0.01"
+            scale="0.055 0.05 0.06">
           </a-text>
           <a-text
             id="ar-detalle"
-            text="value: Detalle; align: left; color: #ffffff; width: 10; fontSize: 17"
-            position="-0.42 -0.095 0.01"
-            scale="0.09 0.06 0.09">
+            text="value: Detalle; align: left; color: #ffffff; width: 10"
+            position="-0.26 -0.15 0.01"
+            scale="0.055 0.05 0.06">
           </a-text>
         </a-entity>
       </a-entity>
