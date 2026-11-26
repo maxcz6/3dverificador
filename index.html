@@ -26,7 +26,14 @@
       device-orientation-permission-ui="enabled: false">
 
       <a-assets>
-        <a-asset-item id="modelo-sello" src="./assets/sello.glb"></a-asset-item>
+        <a-asset-item
+          id="modelo-instituto"
+          src="./assets/SAM_Instituto_Excelencia_AR.glb">
+        </a-asset-item>
+        <a-asset-item
+          id="modelo-programacion"
+          src="./assets/sello.glb">
+        </a-asset-item>
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
@@ -65,9 +72,18 @@
           position="0.5 0 0.02">
         </a-box>
         <a-gltf-model
-          src="#modelo-sello"
-          position="0 0.43 0.03"
-          scale="0.06 0.06 0.06">
+          id="modelo-instituto-overlay"
+          src="#modelo-instituto"
+          rotation="0 0 0"
+          position="-0.4 0.26 0.04"
+          scale="0.7 0.7 0.7">
+        </a-gltf-model>
+        <a-gltf-model
+          id="modelo-programacion-overlay"
+          src="#modelo-programacion"
+          rotation="0 0 0"
+          position="0.4 0.25 0.05"
+          scale="0.07 0.07 0.07">
         </a-gltf-model>
         <a-entity id="ar-panel" position="0 -0.04 0.04" visible="false">
           <a-plane
