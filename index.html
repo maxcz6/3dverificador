@@ -8,49 +8,19 @@
 
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
-  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="stylesheet" href="./css/styles.css?v=3" />
 </head>
 <body>
   <main id="app">
-    <section class="verificador-manual" aria-label="Verificación por código">
-      <form id="form-busqueda">
-        <label for="input-codigo">Verificar documento por código</label>
-        <div class="busqueda-codigo">
-          <input
-            id="input-codigo"
-            name="codigo"
-            type="search"
-            placeholder="Ej.: IDEXSAM-2026-DPW-S1-049"
-            autocomplete="off"
-            required />
-          <button class="btn btn-primario" type="submit">Verificar</button>
-        </div>
-      </form>
-    </section>
-
     <section id="estado-camara" class="estado-camara" role="status" aria-live="polite">
       <strong>Iniciando cámara</strong>
       <span>Apunta la cámara hacia el documento.</span>
     </section>
 
-    <section id="hud" class="hud" aria-live="polite" aria-label="Datos del documento">
-      <div class="hud-cabecera">
-        <span id="doc-estado" class="estado-badge">VERIFICADO</span>
-        <button id="btn-cerrar" class="btn-cerrar" type="button" aria-label="Cerrar detalles">&times;</button>
-      </div>
-      <h1 id="doc-titulo">Documento</h1>
-      <p id="doc-meta"></p>
-      <p id="doc-temario"></p>
-      <div class="acciones">
-        <button id="btn-alternar" class="btn btn-secundario" type="button">Ver código</button>
-        <a id="doc-link" class="btn btn-primario" target="_blank" rel="noopener">Abrir ficha oficial</a>
-      </div>
-    </section>
-
     <a-scene
-      mindar-image="imageTargetSrc: ./targets/targets.mind; filterMinCF: 0.0001; filterBeta: 0.001;"
+      mindar-image="imageTargetSrc: ./targets/targets.mind; filterMinCF: 0.0001; filterBeta: 0.001; uiLoading: no; uiScanning: no; uiError: no;"
       color-space="sRGB"
-      renderer="colorManagement: true, physicallyCorrectLights"
+      renderer="alpha: true; colorManagement: true; physicallyCorrectLights: true"
       embedded
       vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: false">
@@ -62,32 +32,87 @@
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
       <a-entity id="target-0" mindar-image-target="targetIndex: 0">
+        <a-box
+          color="#4ade80"
+          opacity="0.8"
+          width="1"
+          height="0.008"
+          depth="0.004"
+          position="0 0.347 0.02">
+        </a-box>
+        <a-box
+          color="#4ade80"
+          opacity="0.8"
+          width="1"
+          height="0.008"
+          depth="0.004"
+          position="0 -0.347 0.02">
+        </a-box>
+        <a-box
+          color="#4ade80"
+          opacity="0.8"
+          width="0.008"
+          height="0.694"
+          depth="0.004"
+          position="-0.5 0 0.02">
+        </a-box>
+        <a-box
+          color="#4ade80"
+          opacity="0.8"
+          width="0.008"
+          height="0.694"
+          depth="0.004"
+          position="0.5 0 0.02">
+        </a-box>
         <a-gltf-model
           src="#modelo-sello"
-          position="0 0.22 0.08"
-          scale="0.25 0.25 0.25">
+          position="0 0.43 0.03"
+          scale="0.06 0.06 0.06">
         </a-gltf-model>
-        <a-ring
-          color="#22c55e"
-          position="0 0.12 0.08"
-          radius-inner="0.18"
-          radius-outer="0.24"
-          opacity="0.95"
-          animation="property: rotation; to: 0 360 0; loop: true; dur: 5000; easing: linear">
-        </a-ring>
-        <a-plane color="#0f172a" opacity="0.92" position="0 -0.22 0.05" width="1.05" height="0.32"></a-plane>
-        <a-text
-          value="DOCUMENTO VERIFICADO"
-          align="center"
-          color="#4ade80"
-          width="1.6"
-          position="0 -0.22 0.08">
-        </a-text>
+        <a-entity id="ar-panel" position="0 -0.04 0.04" visible="false">
+          <a-plane
+            color="#0f172a"
+            opacity="0.28"
+            width="0.94"
+            height="0.38"
+            material="transparent: true; depthWrite: false">
+          </a-plane>
+          <a-text
+            id="ar-estado"
+            text="value: VERIFICADO; align: left; color: #4ade80; width: 10; fontSize: 38"
+            position="-0.42 0.145 0.01"
+            scale="0.09 0.06 0.09">
+          </a-text>
+          <a-text
+            id="ar-titulo"
+            text="value: Seminario de Office Avanzado; align: left; color: #ffffff; width: 10; fontSize: 30"
+            position="-0.42 0.085 0.01"
+            scale="0.09 0.06 0.09">
+          </a-text>
+          <a-text
+            id="ar-institucion"
+            text="value: Institución; align: left; color: #ffffff; width: 10; fontSize: 21"
+            position="-0.42 0.025 0.01"
+            scale="0.09 0.06 0.09">
+          </a-text>
+          <a-text
+            id="ar-codigo"
+            text="value: Código; align: left; color: #ffffff; width: 10; fontSize: 20"
+            position="-0.42 -0.035 0.01"
+            scale="0.09 0.06 0.09">
+          </a-text>
+          <a-text
+            id="ar-detalle"
+            text="value: Detalle; align: left; color: #ffffff; width: 10; fontSize: 17"
+            position="-0.42 -0.095 0.01"
+            scale="0.09 0.06 0.09">
+          </a-text>
+        </a-entity>
       </a-entity>
     </a-scene>
   </main>
 
-  <script src="./js/config.js"></script>
-  <script src="./js/app.js"></script>
+  <script src="./js/config.js?v=2"></script>
+  <script src="./js/app.js?v=4"></script>
 </body>
 </html>
