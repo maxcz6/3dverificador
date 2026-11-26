@@ -1,0 +1,151 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #020617;
+}
+
+#app,
+a-scene {
+  width: 100%;
+  height: 100%;
+}
+
+.estado-camara {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  z-index: 30;
+  width: min(92vw, 420px);
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 12px;
+  padding: 10px 14px;
+  background: rgba(15, 23, 42, 0.92);
+  color: #f8fafc;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+  text-align: center;
+  font-size: 13px;
+  pointer-events: none;
+}
+
+.estado-camara span {
+  color: #cbd5e1;
+}
+
+.estado-camara.oculto {
+  display: none;
+}
+
+.hud {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  z-index: 20;
+  width: min(92vw, 420px);
+  transform: translate(-50%, 20px);
+  display: none;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  border-radius: 14px;
+  padding: 14px 16px;
+  background: rgba(15, 23, 42, 0.94);
+  color: #f8fafc;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+.hud.visible {
+  display: block;
+  animation: aparecer 180ms ease-out forwards;
+}
+
+.hud-cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.estado-badge {
+  display: inline-block;
+  border-radius: 6px;
+  padding: 3px 8px;
+  background: #16a34a;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.estado-badge.invalido {
+  background: #dc2626;
+}
+
+.btn-cerrar {
+  border: 0;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+#doc-titulo {
+  margin: 8px 0 4px;
+  font-size: 17px;
+  line-height: 1.25;
+}
+
+#doc-meta,
+#doc-temario {
+  margin: 4px 0;
+  color: #cbd5e1;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.acciones {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.btn {
+  flex: 1;
+  min-height: 38px;
+  border: 0;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 10px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-primario {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.btn-secundario {
+  background: #334155;
+  color: #f8fafc;
+}
+
+@keyframes aparecer {
+  to {
+    transform: translate(-50%, 0);
+  }
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0f172a" />
+  <title>Verificador WebAR</title>
+
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <main id="app">
+    <section id="estado-camara" class="estado-camara" role="status" aria-live="polite">
+      <strong>Iniciando cámara</strong>
+      <span>Apunta la cámara hacia el documento.</span>
+    </section>
+
+    <section id="hud" class="hud" aria-live="polite" aria-label="Datos del documento">
+      <div class="hud-cabecera">
+        <span id="doc-estado" class="estado-badge">VERIFICADO</span>
+        <button id="btn-cerrar" class="btn-cerrar" type="button" aria-label="Cerrar detalles">&times;</button>
+      </div>
+      <h1 id="doc-titulo">Documento</h1>
+      <p id="doc-meta"></p>
+      <p id="doc-temario"></p>
+      <div class="acciones">
+        <button id="btn-alternar" class="btn btn-secundario" type="button">Ver código</button>
+        <a id="doc-link" class="btn btn-primario" href="#" target="_blank" rel="noopener">Abrir ficha</a>
+      </div>
+    </section>
+
+    <a-scene
+      mindar-image="imageTargetSrc: ./targets/targets.mind; filterMinCF: 0.0001; filterBeta: 0.001;"
+      color-space="sRGB"
+      renderer="colorManagement: true, physicallyCorrectLights"
+      embedded
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: false">
+
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+      <a-entity id="target-0" mindar-image-target="targetIndex: 0">
+        <a-ring
+          color="#22c55e"
+          position="0 0.12 0.08"
+          radius-inner="0.18"
+          radius-outer="0.24"
+          opacity="0.95"
+          animation="property: rotation; to: 0 360 0; loop: true; dur: 5000; easing: linear">
+        </a-ring>
+        <a-plane color="#0f172a" opacity="0.92" position="0 -0.22 0.05" width="1.05" height="0.32"></a-plane>
+        <a-text
+          value="DOCUMENTO VERIFICADO"
+          align="center"
+          color="#4ade80"
+          width="1.6"
+          position="0 -0.22 0.08">
+        </a-text>
+      </a-entity>
+
+      <a-entity id="target-1" mindar-image-target="targetIndex: 1">
+        <a-ring
+          color="#38bdf8"
+          position="0 0.12 0.08"
+          radius-inner="0.18"
+          radius-outer="0.24"
+          opacity="0.95"
+          animation="property: rotation; to: 0 360 0; loop: true; dur: 5000; easing: linear">
+        </a-ring>
+        <a-plane color="#0f172a" opacity="0.92" position="0 -0.22 0.05" width="1.05" height="0.32"></a-plane>
+        <a-text
+          value="DOCUMENTO VERIFICADO"
+          align="center"
+          color="#38bdf8"
+          width="1.6"
+          position="0 -0.22 0.08">
+        </a-text>
+      </a-entity>
+    </a-scene>
+  </main>
+
+  <script src="./js/config.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
