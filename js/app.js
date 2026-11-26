@@ -75,6 +75,23 @@ function ocultarPanelDocumento() {
   document.getElementById("ar-panel").setAttribute("visible", false);
 }
 
+function reproducirVideoCertificado() {
+  const video = document.getElementById("video-certificado");
+  void video.play().catch((error) => {
+    console.error("No se pudo reproducir el video del certificado.", error);
+    const aviso = document.getElementById("estado-camara");
+    aviso.classList.remove("oculto");
+    aviso.innerHTML =
+      "<strong>Video no disponible</strong><span>Permite la reproducción y confirma que vdo.mp4 esté en la carpeta principal.</span>";
+  });
+}
+
+function pausarVideoCertificado() {
+  const video = document.getElementById("video-certificado");
+  video.pause();
+  video.currentTime = 0;
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   const aviso = document.getElementById("estado-camara");
 
@@ -91,6 +108,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!target) continue;
 
     target.addEventListener("targetFound", () => {
+      reproducirVideoCertificado();
       if (!datosDisponibles) {
         mostrarDocumentoNoEncontrado("No se pudieron cargar los datos del certificado.");
         return;
@@ -105,6 +123,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     target.addEventListener("targetLost", () => {
+      pausarVideoCertificado();
       ocultarPanelDocumento();
       aviso.classList.remove("oculto");
       aviso.innerHTML =

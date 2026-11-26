@@ -34,11 +34,27 @@
           id="modelo-programacion"
           src="./assets/sello.glb">
         </a-asset-item>
+        <video
+          id="video-certificado"
+          src="./vdo.mp4"
+          loop
+          muted
+          playsinline
+          preload="auto">
+        </video>
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
       <a-entity id="target-0" mindar-image-target="targetIndex: 0">
+        <a-video
+          id="video-certificado-overlay"
+          src="#video-certificado"
+          width="1"
+          height="0.5625"
+          position="0 0 0.01"
+          material="shader: flat; transparent: true; opacity: 0.86; side: double; depthWrite: false">
+        </a-video>
         <a-box
           color="#4ade80"
           opacity="0.8"
@@ -129,6 +145,6 @@
   </main>
 
   <script src="./js/config.js?v=2"></script>
-  <script src="./js/app.js?v=4"></script>
+  <script src="./js/app.js?v=5"></script>
 </body>
 </html>
